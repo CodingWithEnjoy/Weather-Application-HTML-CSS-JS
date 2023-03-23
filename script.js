@@ -19,7 +19,7 @@ locationBtn.addEventListener("click", () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
   } else {
-    alert("Your browser not support geolocation api");
+    alert("مرورگر شما از ای پی آی لوکیشن پشتیبانی نمیکند");
   }
 });
 
@@ -40,13 +40,13 @@ function onError(error) {
 }
 
 function fetchData() {
-  infoTxt.innerText = "Getting weather details...";
+  infoTxt.innerText = "در حال گرفتن اطلاعات";
   infoTxt.classList.add("pending");
   fetch(api)
     .then((res) => res.json())
     .then((result) => weatherDetails(result))
     .catch(() => {
-      infoTxt.innerText = "Something went wrong";
+      infoTxt.innerText = "خطا";
       infoTxt.classList.replace("pending", "error");
     });
 }
